@@ -96,39 +96,24 @@ Using comments, define the method signatures (arguments and return value) and wh
 
 ```python
 # EXAMPLE
-# Table name: students
+# Table name: book_store
 
 # Repository class
-# (in lib/student_repository.py)
+# (in lib/book_store_repository.py)
 
-class StudentRepository():
+class BookStoreRepository():
+    def __init__(self):
+        # Connect to DB
+        pass
 
     # Selecting all records
     # No arguments
     def all():
         # Executes the SQL query:
-        # SELECT id, name, cohort_name FROM students;
+        # SELECT id, title, author_name FROM book_store;
 
-        # Returns an array of Student objects.
+        # Returns an array of Book objects.
 
-        # Gets a single record by its ID
-        # One argument: the id (number)
-    def find(id):
-        # Executes the SQL query:
-        # SELECT id, name, cohort_name FROM students WHERE id = $1;
-
-        # Returns a single Student object.
-
-        # Add more methods below for each operation you'd like to implement.
-
-    # def create(student)
-    # 
-
-    # def update(student)
-    # 
-
-    # def delete(student)
-    # 
 
 ```
 
@@ -144,37 +129,20 @@ These examples will later be encoded as Pytest tests.
 # 1
 # Get all students
 
-repo = StudentRepository()
+repo = BookStoreRepository()
 
-students = repo.all()
+book_store = repo.all()
 
-len(students) # =>  2
+len(book_store) # =>  5
 
-students[0].id # =>  1
-students[0].name # =>  'David'
-students[0].cohort_name # =>  'April 2022'
+book_store[0].id # =>  1
+book_store[0].title # =>  'Nineteen Eighty-Four' 
+book_store[0].author_name # =>  'George Orwell'
 
-students[1].id # =>  2
-students[1].name # =>  'Anna'
-students[1].cohort_name # =>  'May 2022'
+book_store[3].id # =>  4
+book_store[3].name # =>  'Dracula'
+book_store[3].cohort_name # =>  'Bram Stoker'
 
-# 2
-# Get a single student
-
-repo = StudentRepository()
-
-student = repo.find(1)
-
-student.id # =>  1
-student.name # =>  'David'
-student.cohort_name # =>  'April 2022'
-
-# Add more examples for each method
 ```
 
 Encode this example as a test.
-
-
-## 7. Test-drive and implement the Repository class behaviour
-
-_After each test you write, follow the test-driving process of red, green, refactor to implement the behaviour._
