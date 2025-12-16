@@ -80,7 +80,7 @@ Define the attributes of your Model class. You can usually map the table columns
 # Model class
 # (in lib/book_store.py)
 
-class Student:
+class BookStore:
     def __init__(self, id, title, author_name):
         self.id = id
         self.title = title
