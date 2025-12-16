@@ -1,3 +1,5 @@
+from lib.book_store import BookStore
+
 class BookStoreRepository:
     def __init__(self, connection):
         self._connection = connection
